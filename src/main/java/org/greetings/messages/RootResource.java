@@ -1,4 +1,4 @@
-package org.wildfly.quickstarts.mpjwt;
+package org.greetings.messages;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -11,6 +11,6 @@ public class RootResource {
     @GET
     @Produces(MediaType.TEXT_PLAIN)
     public String getRootResponse() {
-        return "MicroProfile JWT quickstart deployed successfully. You can find the available operations in the included README file.";
+        return "Greeting cards message endpoint deployed successfully. You can find the available operations in the included README file.";
     }
 }

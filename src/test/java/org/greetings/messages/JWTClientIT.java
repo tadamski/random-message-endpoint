@@ -16,7 +16,7 @@
  * limitations under the License.
  */
 
-package org.wildfly.quickstarts.mpjwt;
+package org.greetings.messages;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;

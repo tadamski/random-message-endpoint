@@ -16,7 +16,7 @@
  * limitations under the License.
  */
 
-package org.wildfly.quickstarts.mpjwt;
+package org.greetings.messages;
 
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;

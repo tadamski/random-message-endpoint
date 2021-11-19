@@ -69,7 +69,7 @@ Using the token generation utility contained within the quickstart a new JWT can
 
 [source]
 ----
-$ mvn exec:java -Dexec.mainClass=org.wildfly.quickstarts.mpjwt.TokenUtil -Dexec.classpathScope=test -Dexec.args="testUser 2017-09-15 Echoer Subscriber"
+$ mvn exec:java -Dexec.mainClass=TokenUtil -Dexec.classpathScope=test -Dexec.args="testUser 2017-09-15 Echoer Subscriber"
 
 JWT Header - {"kid":"Test Key","typ":"jwt","alg":"RS256"}
 
@@ -100,7 +100,7 @@ If a token is now generated and use without the `Subscriber` group access to thi
 
 [source]
 ----
-$ mvn exec:java -Dexec.mainClass=org.wildfly.quickstarts.mpjwt.TokenUtil -Dexec.classpathScope=test -Dexec.args="testUser 2017-09-15 Echoer"
+$ mvn exec:java -Dexec.mainClass=TokenUtil -Dexec.classpathScope=test -Dexec.args="testUser 2017-09-15 Echoer"
 
 JWT Header - {"kid":"Test Key","typ":"jwt","alg":"RS256"}
 
@@ -334,7 +334,7 @@ In the output of the application server's console check the deployment deployed 
 
 [source]
 ----
-15:48:22,159 INFO  [org.jboss.resteasy.resteasy_jaxrs.i18n] (ServerService Thread Pool -- 78) RESTEASY002225: Deploying javax.ws.rs.core.Application: class org.wildfly.quickstarts.mpjwt.App$Proxy$_$$_WeldClientProxy
+15:48:22,159 INFO  [org.jboss.resteasy.resteasy_jaxrs.i18n] (ServerService Thread Pool -- 78) RESTEASY002225: Deploying javax.ws.rs.core.Application: class App$Proxy$_$$_WeldClientProxy
 15:48:22,193 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 78) WFLYUT0021: Registered web context: '/microprofile-jwt' for server 'default-server'
 15:48:22,239 INFO  [org.jboss.as.server] (management-handler-thread - 1) WFLYSRV0010: Deployed "microprofile-jwt.war" (runtime-name : "microprofile-jwt.war")
 ----
@@ -353,7 +353,7 @@ Alternative HTTP clients can be used however later on we will be adding custom h
 
 The first update to make to the project is to modify the `/helloworld` to report the name of the presently authenticated identity.
 
-Make the following changes to the previously created `org.wildfly.quickstarts.mpjwt.SampleEndPoint` class.
+Make the following changes to the previously created `SampleEndPoint` class.
 
 Add the following `import` statements to the class.
 
@@ -517,7 +517,7 @@ After adding the class the project will need to be compiled again and can then b
 ----
 $ mvn package
 ...
-$ mvn exec:java -Dexec.mainClass=org.wildfly.quickstarts.mpjwt.TokenUtil -Dexec.classpathScope=test -Dexec.args="testUser 2017-09-15 Echoer Subscriber"
+$ mvn exec:java -Dexec.mainClass=TokenUtil -Dexec.classpathScope=test -Dexec.args="testUser 2017-09-15 Echoer Subscriber"
 
 JWT Header - {"kid":"Test Key","typ":"jwt","alg":"RS256"}
 
@@ -535,7 +535,7 @@ At this stage we have a basic JAX-RS deployment, a pair of keys for the generati
 Our next step is to activate MicroProfile JWT authentication for the deployment and we can then make use of some of the advanced features such as role 
 based access control using the groups from within the token and access to individual claims within the token.
 
-As the project was created the class `org.wildfly.quickstarts.mpjwt.App` was added, this should be modified by adding
+As the project was created the class `App` was added, this should be modified by adding
 the `@LoginConfig` annotation as follows.
 
 [source,java]
