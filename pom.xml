@@ -207,7 +207,7 @@
                 <groupId>org.asciidoctor</groupId>
                 <artifactId>asciidoctor-maven-plugin</artifactId>
                 <configuration>
-                    <!-- adds versions properties as attributes for substitutions in README.adoc source blocks -->
+                    <!-- adds versions properties as attributes for substitutions in JWT-README.adoc source blocks -->
                     <attributes>
                         <versionServerBom>${version.server.bom}</versionServerBom>
                         <versionMicroprofileBom>${version.microprofile.bom}</versionMicroprofileBom>
